@@ -10,5 +10,8 @@ public class Todo {
 	 
 	 @NotBlank
 	 private String task;
-
+	 
+	 @NotBlank
+	 private String deadline;
+	 
 }

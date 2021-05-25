@@ -24,11 +24,11 @@ public interface TodoMapper {
 	
 	//登録
 	@Options(useGeneratedKeys = true)//自動で連番のidを取得する
-	@Insert("insert into todo (task) values (#{task})")
+	@Insert("insert into todo (task, deadline) values (#{task}, #{deadline})")
 	void insert(Todo todo);
 	
 	//更新
-	@Update("update todo set task = #{task} where id = #{id}")
+	@Update("update todo set task = #{task},deadline = #{deadline} where id = #{id}")
 	int update(Todo todo);
 	
 	//消去

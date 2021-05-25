@@ -11,13 +11,15 @@
 
     <form method="post" th:action="@{/todos/new}" th:object="${todo}">
         <ul>
-            <li><label>やること</label> <br> <input type="text" id="task"
-                name="task" th:field="*{task}" /> 
-
+            <li>
+            	<label>やること</label><br>
+            	<input type="text" id="task" name="task" th:field="*{task}" />
             </li>
-
+            <li>
+            	<label>期限</label><br>
+            	<input type="text" id="deadline" name="deadline" th:field="*{deadline}"/>
+            </li>
         </ul>
-
         <button >新規作成</button>
     </form>
 </body>

@@ -15,8 +15,12 @@
         <!-- 入力したやつをtodoの中にいれて使える -->
 
         <ul>
-            <li><label>やること</label> <br> <input type="text" id="todo"
-                name="todo" th:field="*{task}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+            <li><label>やること</label> <br>
+            <input type="text" id="todo" name="todo" th:field="*{task}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+        </ul>
+        <ul>
+            <li><label>期日</label> <br>
+            <input type="text" id="todo" name="todo" th:field="*{deadline}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
         </ul>
         <button>更新</button>
 

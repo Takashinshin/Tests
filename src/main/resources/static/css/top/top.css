@@ -1,0 +1,10 @@
+.todo-list{
+	margin:10px;
+}
+
+.table-high{
+	background-color:gray;
+}
+table, td, th {
+	border: 0.5px black solid; 
+}

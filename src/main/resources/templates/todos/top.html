@@ -3,37 +3,52 @@
     xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
     layout:decorator="layout">
 <meta charset="UTF-8">
+<!-- CSS読込 -->
+<link rel="stylesheet" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+<link rel="stylesheet" th:href="@{css/top/top.css}" >
+
+<!-- JS読込 -->
+<script th:src="@{/webjars/jquery/jquery.min.js}"defer></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"defer></script>
 <title>ToDOリスト</title>
 
 </head>
 <body>
-    <h1>ToDoリスト</h1>
+	<div class="Topname">
+		<h1>ToDoリスト</h1>
+	</div>
+    
     
     <div th:if="!${todo.size()}">
         <p>該当の検索結果がありません！</p>
     </div>
-    <table th:if="${todo.size()}" border="1">
+    <table th:if="${todo.size()}" border="1" >
         <thead>
-            <tr>
+            <tr class="table-high">
                 <th>ID </th>
                 <th>やること</th>
+                <th>期日</th>
                 <th></th>
                 <th></th>
                 <th></th>
             </tr>
         </thead>
-        <tbody>
+        <tbody class="todo-list">
             <tr th:each="todo:${todo}" th:object="${todo}">
                 <!-- each;DBの情報をすべて出すまで繰り返す -->
                 <td th:text="*{id}"></td>
                 <td th:text="*{task}"></td>
-                <td><a th:href="@{/todos/{id}(id=*{id})}">
-                        <button>詳細</button>
-                </a></td>
-                <td><a th:href="@{/todos/{id}/change(id=*{id})}"><button>変更</button></a></td>
+                <td th:text="*{deadline}"></td>
                 <td>
-                    <form th:action="@{/todos/{id}/delete(id=*{id})}"
-                        th:method="delete">
+                	<a th:href="@{/todos/{id}(id=*{id})}">
+                    <button>詳細</button></a>
+                </td>
+                <td>
+                	<a th:href="@{/todos/{id}/change(id=*{id})}">
+                	<button>変更</button></a>
+                </td>
+                <td>
+                    <form th:action="@{/todos/{id}/delete(id=*{id})}" th:method="delete">
                         <button>消去</button>
                     </form>
                 </td>
