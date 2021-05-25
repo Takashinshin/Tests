@@ -12,7 +12,7 @@
     <div th:if="!${todo.size()}">
         <p>該当の検索結果がありません！</p>
     </div>
-    <table th:if="${todo.size()}" border="2">
+    <table th:if="${todo.size()}" border="1">
         <thead>
             <tr>
                 <th>ID </th>
@@ -41,7 +41,7 @@
         </tbody>
     </table>
     <a th:href="@{/todos/new}">
-        <button>ToDo作成【NEW】</button>
+        <button>新たなToDo作成</button>
         </a>
 </body>
 </html>
