@@ -8,16 +8,14 @@
 </head>
 <body>
     <h1>ToDoリスト</h1>
-    <a th:href="@{/todos/new}">
-        <button>ToDo作成【NEW】</button>
-    </a>
+    
     <div th:if="!${todo.size()}">
         <p>該当の検索結果がありません！</p>
     </div>
-    <table th:if="${todo.size()}" border="1">
+    <table th:if="${todo.size()}" border="2">
         <thead>
             <tr>
-                <th>ID#</th>
+                <th>ID </th>
                 <th>やること</th>
                 <th></th>
                 <th></th>
@@ -41,7 +39,9 @@
                 </td>
             </tr>
         </tbody>
-
     </table>
+    <a th:href="@{/todos/new}">
+        <button>ToDo作成【NEW】</button>
+        </a>
 </body>
 </html>
