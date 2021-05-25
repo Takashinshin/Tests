@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout">
+<meta charset="UTF-8">
+<title>ToDOリスト</title>
+
+</head>
+<body>
+    <h1>ToDoリスト</h1>
+    <a th:href="@{/todos/new}">
+        <button>ToDo作成【NEW】</button>
+    </a>
+    <div th:if="!${todo.size()}">
+        <p>該当の検索結果がありません！</p>
+    </div>
+    <table th:if="${todo.size()}" border="1">
+        <thead>
+            <tr>
+                <th>ID#</th>
+                <th>やること</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="todo:${todo}" th:object="${todo}">
+                <!-- each;DBの情報をすべて出すまで繰り返す -->
+                <td th:text="*{id}"></td>
+                <td th:text="*{task}"></td>
+                <td><a th:href="@{/todos/{id}(id=*{id})}">
+                        <button>詳細</button>
+                </a></td>
+                <td><a th:href="@{/todos/{id}/change(id=*{id})}"><button>変更</button></a></td>
+                <td>
+                    <form th:action="@{/todos/{id}/delete(id=*{id})}"
+                        th:method="delete">
+                        <button>消去</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
+    </table>
+</body>
+</html>

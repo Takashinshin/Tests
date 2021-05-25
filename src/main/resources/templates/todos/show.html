@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout">
+<meta charset="UTF-8">
+<title>todo</title>
+
+</head>
+<body>
+    <h2>登録内容確認</h2>
+    <div th:object="${todo}">
+        <table border="1">
+
+            <tr>
+                <th>id</th>
+                <td><div th:text="*{id}"></div></td>
+            </tr>
+            <tr>
+                <th>やること</th>
+                <td><div ><div th:text="*{task}"></div></div></td>
+            </tr>
+
+        </table>
+    </div>
+
+</body>
+</html>

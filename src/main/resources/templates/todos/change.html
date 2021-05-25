@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+    xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorator="layout">
+<meta charset="UTF-8">
+<title>ToDo変更</title>
+
+</head>
+<body>
+
+    <h2>ToDo変更</h2>
+
+    <form th:action="@{/todos/put/{id}(id=*{id})}" th:method="put"
+        th:object="${todo}">
+        <!-- 入力したやつをtodoの中にいれて使える -->
+
+        <ul>
+            <li><label>やること</label> <br> <input type="text" id="todo"
+                name="todo" th:field="*{task}" /> <!-- fieldはramen.shopとかにしてHTMLで使える -->
+        </ul>
+        <button>更新</button>
+
+    </form>
+</body>
+</html>
